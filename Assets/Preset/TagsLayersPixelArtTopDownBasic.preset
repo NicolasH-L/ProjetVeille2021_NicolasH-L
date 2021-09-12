@@ -6,7 +6,7 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tags & Layers - Pixel Art Top Down - Basic
+  m_Name: TagsLayersPixelArtTopDownBasic
   m_TargetType:
     m_NativeTypeID: 78
     m_ManagedTypePPtr: {fileID: 0}
@@ -200,3 +200,4 @@ Preset:
     propertyPath: m_SortingLayers.Array.data[3].locked
     value: 0
     objectReference: {fileID: 0}
+  m_ExcludedProperties: []

@@ -10,7 +10,6 @@ public class EnemyDetection : MonoBehaviour
     private const float Speed = 1F;
     private const float TimeBetweenShots = 2f;
     private Transform _target;
-    private Bullets _bullets;
     private bool _hasShot;
 
     private void Start()
@@ -24,18 +23,15 @@ public class EnemyDetection : MonoBehaviour
         if (_target != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, _target.position, step);
-
-            if (!_hasShot)
-            {
-                Instantiate(projectile, transform.position, Quaternion.identity);
-                _hasShot = true;
-                StartCoroutine(DelayNextShot());
-            }
+            if (_hasShot) return;
+            StartCoroutine(DelayNextShot());
         }
     }
 
     private IEnumerator DelayNextShot()
     {
+        _hasShot = true;
+        Instantiate(projectile, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(TimeBetweenShots);
         _hasShot = false;
     }

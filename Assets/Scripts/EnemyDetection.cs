@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
-    [SerializeField] private GameObject gameObject;
     [SerializeField] private GameObject projectile;
     private const float Speed = 1F;
-    private const float TimeBetweenShots = 2f;
+    private const float TimeBetweenShots = 1f;
     private Transform _target;
     private bool _hasShot;
 

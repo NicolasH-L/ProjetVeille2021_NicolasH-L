@@ -3319,3 +3319,59 @@ Received Import Request.
 Start importing Assets/Scripts/GameManager.cs using Guid(d07091f70cea1d243813a50a3ccd06ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f1e9096923478e2d3f89ca3013771e0') in 0.023792 seconds 
   Import took 0.048112 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 16984.145449 seconds.
+  path: Assets/Scenes/Level-3.unity
+  artifactKey: Guid(8e9a13b6efa037f4eb44b32b15c004b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Level-3.unity using Guid(8e9a13b6efa037f4eb44b32b15c004b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eeb0eab48a1049e8d86f964453939e5e') in 0.116194 seconds 
+  Import took 0.181682 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9558.258727 seconds.
+  path: Assets/Brackeys/2D Mega Pack/Enemies/Gothic
+  artifactKey: Guid(2bd86c1f86be261418f7f4fa2d5d629c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/Enemies/Gothic using Guid(2bd86c1f86be261418f7f4fa2d5d629c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95293f8eac9e7c020ee1bed22283ad30') in 0.014692 seconds 
+  Import took 0.061197 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 169.635756 seconds.
+  path: Assets/Prefab/Enemies/SpikyBall.prefab
+  artifactKey: Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/SpikyBall.prefab using Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c8e17bd471f6105945310e3e5bba7cd') in 0.394427 seconds 
+  Import took 0.428054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 57.117466 seconds.
+  path: Assets/Prefab/Enemies/SpikyBall.prefab
+  artifactKey: Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/SpikyBall.prefab using Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5eb3278716125d866628fbc2e18314e7') in 0.024062 seconds 
+  Import took 0.040269 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.384304 seconds.
+  path: Assets/Prefab/Enemies/SpikyBall.prefab
+  artifactKey: Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/SpikyBall.prefab using Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84b120ebc41ed86fd524f68e936d5916') in 0.021334 seconds 
+  Import took 0.029383 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.587468 seconds.
+  path: Assets/Prefab/Enemies/SpikyBall.prefab
+  artifactKey: Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/SpikyBall.prefab using Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7456c5f8c3218b06ab6422226341e9d8') in 0.028171 seconds 
+  Import took 0.040895 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.193069 seconds.
+  path: Assets/Prefab/Enemies/SpikyBall.prefab
+  artifactKey: Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Enemies/SpikyBall.prefab using Guid(e5c857ac09f5b404587b01c7b8a444b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a7f12a54790c45ef9460407a3900ad0') in 0.028327 seconds 
+  Import took 0.062334 seconds .
+

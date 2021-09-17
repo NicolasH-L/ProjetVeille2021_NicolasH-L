@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TopDownCharacterController : MonoBehaviour
 {
+    private static TopDownCharacterController _player;
+    public static TopDownCharacterController GetPlayerInstance => _player;
     private const string KeyMoveRight = "d";
     private const string KeyMoveLeft = "a";
     private const float PlayerSpeed = 3f;

@@ -11,9 +11,9 @@ public class TopDownCharacterController : MonoBehaviour
     private const string KeyMoveLeft = "a";
     private const string Bullet = "Bullet";
     private const string TeleportationPoint = "TeleportationPoint";
+    private const string AttackInputKey = "space";
     private const float PlayerSpeed = 3f;
     private const float DelayTime = 0.6f;
-    private const string AttackInputKey = "space";
 
     [SerializeField] private GameObject judahWeapon;
     private Animator _animatorPlayer;

@@ -7,9 +7,21 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _gameManager;
+    public static GameManager GameManagerInstance => _gameManager;
+
+    private const int FinalLevelScene = 3;
+    private const int GameEndSceneIndex = 4;
+    private const int GameOverSceneIndex = 5;
+    private const string MainCamera = "MainCamera";
+    private const string PlayerSpawnLocationTag = "PlayerSpawn";
+    private const string PauseMenuTag = "PauseMenu";
+    private const string PlayerUiTag = "PlayerUI";
+
     private Camera _playerCamera;
     private Canvas _pauseMenu;
+    private Canvas _canvas;
     private GameObject _playerSpawnLocation;
+    private TopDownCharacterController _player;
     private int _currentLevel;
     private bool _isEndReached;
 
@@ -38,7 +50,9 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        // SceneManager.sceneLoaded += GetPlayer;
+        SceneManager.sceneLoaded += GetPlayer;
+        ++_currentLevel;
+
     }
 
     public void QuitGame()
@@ -53,12 +67,12 @@ public class GameManager : MonoBehaviour
             return;
         _isEndReached = true;
         ++_currentLevel;
-        // DontDestroyOnLoad(_player);
+        DontDestroyOnLoad(_player);
         DontDestroyOnLoad(_playerSpawnLocation);
         DontDestroyOnLoad(_playerCamera);
         DontDestroyOnLoad(_pauseMenu);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        // _player.transform.position = _playerSpawnLocation.transform.position;
+        _player.transform.position = _playerSpawnLocation.transform.position;
         StartCoroutine(DelayEndReachedReset());
     }
 
@@ -68,8 +82,27 @@ public class GameManager : MonoBehaviour
         _isEndReached = false;
     }
 
+    private void GetPlayer(Scene scene, LoadSceneMode mode)
+    {
+        if (SceneManager.GetActiveScene().buildIndex > FinalLevelScene ||
+            SceneManager.GetActiveScene().buildIndex == 0) return;
+        _player = TopDownCharacterController.GetPlayerInstance;
+        _playerCamera = Camera.main;
+        _playerSpawnLocation = GameObject.FindGameObjectWithTag(PlayerSpawnLocationTag);
+        _canvas = GameObject.FindGameObjectWithTag(PlayerUiTag).GetComponent<Canvas>();
+        _pauseMenu = GameObject.FindGameObjectWithTag(PauseMenuTag).GetComponent<Canvas>();
+    }
     public void GameOver(bool isDead)
     {
-        
+        var index = GameEndSceneIndex;
+        if (isDead)
+            index = GameOverSceneIndex;
+        Destroy(GameObject.FindGameObjectWithTag(MainCamera));
+    }
+    
+    private IEnumerator LoadSc(int index)
+    {
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene(index);
     }
 }

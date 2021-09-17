@@ -9,6 +9,8 @@ public class TopDownCharacterController : MonoBehaviour
     public static TopDownCharacterController GetPlayerInstance => _player;
     private const string KeyMoveRight = "d";
     private const string KeyMoveLeft = "a";
+    private const string Bullet = "Bullet";
+    private const string TeleportationPoint = "TeleportationPoint";
     private const float PlayerSpeed = 3f;
     private const float DelayTime = 0.6f;
     private const string AttackInputKey = "space";
@@ -27,6 +29,14 @@ public class TopDownCharacterController : MonoBehaviour
 
     public event GameFinished OnGameEnded;
 
+    private void Awake()
+    {
+        if (_player != null && _player != this)
+            Destroy(gameObject);
+        else
+            _player = this;
+    }
+    
     private void Start()
     {
         // if (GameManager.GameManagerInstance != null)
@@ -99,8 +109,19 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
-            transform.GetComponent<SpriteRenderer>().color = Color.red;
+        switch (other.gameObject.tag)
+        {
+            case Bullet:
+                transform.GetComponent<SpriteRenderer>().color = Color.red;
+                break;
+            case TeleportationPoint:
+                var manager = GameManager.GameManagerInstance;
+                if (GameManager.GameManagerInstance == null)
+                    return;
+                // PlaySpecialSfx(NextLevelAudioClip);
+                manager.OnLevelEndReached += manager.NextLevel;
+                break;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

@@ -94,4 +94,28 @@ public class TopDownCharacterController : MonoBehaviour
         transform.Rotate(0, 180, 0);
         _isMovingRight = !_isMovingRight;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+            transform.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+            transform.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+            transform.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+            transform.GetComponent<SpriteRenderer>().color = Color.white;
+    }
 }

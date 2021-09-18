@@ -111,9 +111,10 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(_player);
         DontDestroyOnLoad(_playerSpawnLocation);
         DontDestroyOnLoad(_playerCamera);
-        DontDestroyOnLoad(_pauseMenu);
+        // DontDestroyOnLoad(_pauseMenu);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         _player.transform.position = _playerSpawnLocation.transform.position;
+        _playerCamera.transform.position = _playerSpawnLocation.transform.position;
         StartCoroutine(DelayEndReachedReset());
         if (!_isMusicPaused)
             PlayMusic(listLevelBgm);

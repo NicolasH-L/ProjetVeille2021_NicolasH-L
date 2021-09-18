@@ -39,10 +39,8 @@ public class TopDownCharacterController : MonoBehaviour
     
     private void Start()
     {
-        // if (GameManager.GameManagerInstance != null)
-        // {
-        //     OnGameEnded += GameManager.GameManagerInstance.GameOver;
-        // }
+        if (GameManager.GameManagerInstance != null)
+            OnGameEnded += GameManager.GameManagerInstance.GameOver;
         _isMovingRight = true;
         _liste = new List<Animator>();
         _liste.AddRange(GetComponentsInChildren<Animator>());

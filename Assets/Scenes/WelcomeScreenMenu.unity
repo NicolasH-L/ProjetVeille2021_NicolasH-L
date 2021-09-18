@@ -592,6 +592,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07091f70cea1d243813a50a3ccd06ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listWelcomeBgm:
+  - {fileID: 8300000, guid: 73755da4732137f44b60daf6425c6e48, type: 3}
+  - {fileID: 8300000, guid: 56775adad48a25147aaa961a1a9c3312, type: 3}
+  listLevelBgm:
+  - {fileID: 8300000, guid: 251c1aa1ff08ff844b5aa022d38c65a4, type: 3}
+  - {fileID: 8300000, guid: 2de795d464b4a794b9628566ddfe018d, type: 3}
+  - {fileID: 8300000, guid: 78c754d265df19f448c5ab5f776af0dc, type: 3}
 --- !u!4 &499036704
 Transform:
   m_ObjectHideFlags: 0
@@ -618,7 +625,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.21
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -714,7 +721,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.21
   m_Pitch: 1
   Loop: 0
   Mute: 0

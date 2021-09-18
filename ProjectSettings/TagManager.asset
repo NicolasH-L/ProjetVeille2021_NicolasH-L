@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - TeleportationPoint
   - PlayerSpawn
+  - PlayerUI
   layers:
   - Default
   - TransparentFX

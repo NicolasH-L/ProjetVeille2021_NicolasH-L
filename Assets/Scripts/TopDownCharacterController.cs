@@ -116,7 +116,6 @@ public class TopDownCharacterController : MonoBehaviour
                 var manager = GameManager.GameManagerInstance;
                 if (GameManager.GameManagerInstance == null)
                     return;
-                // PlaySpecialSfx(NextLevelAudioClip);
                 manager.OnLevelEndReached += manager.NextLevel;
                 break;
         }

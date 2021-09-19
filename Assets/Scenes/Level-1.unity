@@ -69012,6 +69012,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTeri
       objectReference: {fileID: 0}
+    - target: {fileID: 8350626171561984485, guid: 5669c78f487910e4e870da414d64bdd4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5669c78f487910e4e870da414d64bdd4, type: 3}
 --- !u!1 &4465845610949455583 stripped

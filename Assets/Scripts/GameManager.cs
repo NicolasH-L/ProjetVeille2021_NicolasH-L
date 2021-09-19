@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(_player);
         DontDestroyOnLoad(_playerSpawnLocation);
         DontDestroyOnLoad(_playerCamera);
+        DontDestroyOnLoad(_canvas);
         // DontDestroyOnLoad(_pauseMenu);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         _player.transform.position = _playerSpawnLocation.transform.position;
@@ -146,6 +147,7 @@ public class GameManager : MonoBehaviour
         
         Destroy(GameObject.FindGameObjectWithTag(MainCamera));
         Destroy(GameObject.FindGameObjectWithTag(PauseMenuTag));
+        Destroy(GameObject.FindGameObjectWithTag(PlayerUiTag));
         StartCoroutine(LoadSc(index));
     }
     

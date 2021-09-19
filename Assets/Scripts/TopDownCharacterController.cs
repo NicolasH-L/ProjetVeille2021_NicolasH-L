@@ -15,21 +15,21 @@ public class TopDownCharacterController : MonoBehaviour
     private const float PlayerSpeed = 3f;
     private const float DelayTime = 0.6f;
     private const int MaxHealth = 100;
-    private const int PlayerHitAudioSourceIndex = 0;
-    private const int AttackAudioSourceIndex = 1;
-    private const int SoundEffect2 = 1;
+    private const int SoundEffectPlayerHit = 0;
+    private const int SoundEffectMeleeHit = 1;
+    private const int PlayerScreamSfx = 2;
+    private const int PlayerScreamSfx2 = 3;
 
     [SerializeField] private GameObject judahWeapon;
     [SerializeField] private HealthBar healthBar;
-    [SerializeField] private List<AudioClip> listAttackClips;
 
     private Animator _animatorPlayer;
     private List<Animator> _liste;
     private AudioSource[] _audioSource;
-    private List<AudioSource> _audioSourceAttack;
     private int _currentMaxHealth;
     private int _currentHealth;
     private int _audioClipIndex;
+    private int _currentPlayerSfx;
     private bool _isMovingRight;
     private bool _hasAttacked;
     private bool _isHurtSoundPlayed;
@@ -58,10 +58,7 @@ public class TopDownCharacterController : MonoBehaviour
         _liste.AddRange(GetComponentsInChildren<Animator>());
         _animatorPlayer = _liste[1];
         _audioSource = GetComponents<AudioSource>();
-        _audioSourceAttack = new List<AudioSource>();
-        _audioSourceAttack.AddRange(GetComponents<AudioSource>());
-        _audioSourceAttack[AttackAudioSourceIndex].clip = listAttackClips[_audioClipIndex];
-        _audioClipIndex = 0;
+        _currentPlayerSfx = PlayerScreamSfx;
         _currentMaxHealth = MaxHealth;
         _currentHealth = MaxHealth;
         healthBar.SetMaxValue(_currentHealth);
@@ -103,33 +100,30 @@ public class TopDownCharacterController : MonoBehaviour
         if (_hasAttacked)
             return;
         _animatorPlayer.SetTrigger(AttackTrigger);
-        _audioSourceAttack[SoundEffect2].Play();
-        _audioSourceAttack[AttackAudioSourceIndex].Play();
+        _audioSource[SoundEffectMeleeHit].Play();
+        ChangeAttackAudio();
         judahWeapon.SetActive(true);
         _hasAttacked = true;
         StartCoroutine(ResetDelayNextAttack());
+    }
+
+    private void ChangeAttackAudio()
+    {
+        _currentPlayerSfx = _currentPlayerSfx == PlayerScreamSfx ? PlayerScreamSfx2 : PlayerScreamSfx;
+        _audioSource[_currentPlayerSfx].Play();
     }
 
     private IEnumerator ResetDelayNextAttack()
     {
         yield return new WaitForSeconds(DelayTime);
         _hasAttacked = false;
-        ChangeAttackAudioClip();
     }
 
-    private void ChangeAttackAudioClip()
-    {
-        ++_audioClipIndex;
-        if (_audioClipIndex + 1 > listAttackClips.Count)
-            _audioClipIndex = 0;
-        _audioSource[AttackAudioSourceIndex].clip = listAttackClips[_audioClipIndex];
-    }
-    
     private void TakeDamage(int damage)
     {
         if (!_isHurtSoundPlayed)
         {
-            _audioSource[0].Play();
+            _audioSource[SoundEffectPlayerHit].Play();
             StartCoroutine(DelayHurtSound());
         }
 
@@ -152,7 +146,7 @@ public class TopDownCharacterController : MonoBehaviour
             : healthBar.GetCurrentValue() + value;
         healthBar.SetValue(_currentHealth);
     }
-    
+
     private void ChangeDirection()
     {
         transform.Rotate(0, 180, 0);

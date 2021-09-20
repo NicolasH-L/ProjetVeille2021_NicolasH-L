@@ -11,6 +11,9 @@ TagManager:
   - TeleportationPoint
   - PlayerSpawn
   - PlayerUI
+  - GameOverCamera
+  - GoodEndingCamera
+  - Food
   layers:
   - Default
   - TransparentFX
@@ -56,4 +59,7 @@ TagManager:
     locked: 0
   - name: Layer 3
     uniqueID: 4189426099
+    locked: 0
+  - name: Layer Joueur
+    uniqueID: 30402015
     locked: 0

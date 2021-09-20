@@ -69,7 +69,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4465845612834402469
 Transform:
   m_ObjectHideFlags: 0
@@ -388,6 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   judahWeapon: {fileID: 4465845612834402468}
+  healthBar: {fileID: 0}
 --- !u!212 &8350626170036161592
 SpriteRenderer:
   m_ObjectHideFlags: 0

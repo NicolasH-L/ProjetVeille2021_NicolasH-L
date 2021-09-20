@@ -10,6 +10,7 @@ public class TopDownCharacterController : MonoBehaviour
     private const string KeyMoveRight = "d";
     private const string KeyMoveLeft = "a";
     private const string Bullet = "Bullet";
+    private const string Food = "Food";
     private const string TeleportationPoint = "TeleportationPoint";
     private const string AttackInputKey = "space";
     private const float PlayerSpeed = 3f;
@@ -160,6 +161,9 @@ public class TopDownCharacterController : MonoBehaviour
             case Bullet:
                 transform.GetComponent<SpriteRenderer>().color = Color.red;
                 TakeDamage(10);
+                break;
+            case Food:
+                GainHP(5);
                 break;
             case TeleportationPoint:
                 var manager = GameManager.GameManagerInstance;

@@ -6,14 +6,12 @@ using UnityEngine.SceneManagement;
 public class EndingManager : MonoBehaviour
 {
     private const string WelcomeScreenSceneIndex = "WelcomeScreenMenu";
-    [SerializeField] private AudioClip music;
     private AudioSource _audioSource;
     
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        if (music == null || _audioSource == null) return;
-        _audioSource.clip = music;
+        if (_audioSource == null) return;
         _audioSource.loop = true;
         _audioSource.Play();
     }

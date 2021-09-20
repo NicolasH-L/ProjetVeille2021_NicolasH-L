@@ -116,6 +116,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         _player.transform.position = _playerSpawnLocation.transform.position;
         _playerCamera.transform.position = _playerSpawnLocation.transform.position;
+        _player.gameObject.layer = 20;
+        _player.GetComponent<SpriteRenderer>().sortingLayerName = "Layer 1";
+        _player.GetComponent<SpriteRenderer>().sortingOrder = 2;
         StartCoroutine(DelayEndReachedReset());
         if (!_isMusicPaused)
             PlayMusic(listLevelBgm);
@@ -135,7 +138,7 @@ public class GameManager : MonoBehaviour
         _playerCamera = Camera.main;
         _playerSpawnLocation = GameObject.FindGameObjectWithTag(PlayerSpawnLocationTag);
         _canvas = GameObject.FindGameObjectWithTag(PlayerUiTag).GetComponent<Canvas>();
-        _pauseMenu = GameObject.FindGameObjectWithTag(PauseMenuTag).GetComponent<Canvas>();
+        // _pauseMenu = GameObject.FindGameObjectWithTag(PauseMenuTag).GetComponent<Canvas>();
     }
     
     public void GameOver(bool isDead)
@@ -146,7 +149,7 @@ public class GameManager : MonoBehaviour
             index = GameOverSceneIndex;
         
         Destroy(GameObject.FindGameObjectWithTag(MainCamera));
-        Destroy(GameObject.FindGameObjectWithTag(PauseMenuTag));
+        // Destroy(GameObject.FindGameObjectWithTag(PauseMenuTag));
         Destroy(GameObject.FindGameObjectWithTag(PlayerUiTag));
         StartCoroutine(LoadSc(index));
     }

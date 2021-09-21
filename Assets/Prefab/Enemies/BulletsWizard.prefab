@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5088397082223489052}
   - component: {fileID: 305876003697790424}
   m_Layer: 0
-  m_Name: Bullets
+  m_Name: BulletsWizard
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3383ae8d839cdd745be5c486a384ff68, type: 3}
-  m_Color: {r: 0.9000633, g: 0.9528302, b: 0.89350307, a: 1}
+  m_Color: {r: 0.20825914, g: 0.46181887, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,4 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ab0c098fb0a9a4dac0531970f113e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4

@@ -20,10 +20,10 @@ public class Bullets : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, _target, speed * Time.deltaTime);
-        StartCoroutine(DestroyBulletsDelay(1.5f));
-        // if (!transform.position.Equals(_target)) return;
-        // Destroy(_bulletCollider);
-        // Destroy(gameObject);
+        // StartCoroutine(DestroyBulletsDelay(1.5f));
+        if (!transform.position.Equals(_target)) return;
+        Destroy(_bulletCollider);
+        Destroy(gameObject);
     }
 
     private IEnumerator DestroyBulletsDelay(float seconds)

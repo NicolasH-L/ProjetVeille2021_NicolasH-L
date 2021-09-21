@@ -6,20 +6,24 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
+    [SerializeField] private int healthPoint;
+    [SerializeField] private int damagePoint;
     private const float Speed = 1F;
     private const float TimeBetweenShots = 1f;
     private Transform _target;
+    private SpriteRenderer _sprite;
+    private List<Collider2D> _colliders;
     private bool _hasShot;
     private bool _isLeft;
     private bool _isRight;
-    private SpriteRenderer test;
+    private bool _isHit;
 
     private void Start()
     {
         _hasShot = false;
         _isLeft = true;
         _isRight = false;
-        test = gameObject.GetComponent<SpriteRenderer>();
+        _sprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -29,13 +33,13 @@ public class EnemyDetection : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, _target.position, step);
         if (_target.position.x < gameObject.transform.position.x && _isRight)
         {
-            test.flipX = false;
+            _sprite.flipX = false;
             _isLeft = true;
             _isRight = false;
         }
         else if (_target.position.x > gameObject.transform.position.x && _isLeft)
         {
-            test.flipX = true;
+            _sprite.flipX = true;
             _isLeft = false;
             _isRight = true;
         }
@@ -49,6 +53,23 @@ public class EnemyDetection : MonoBehaviour
         Instantiate(projectile, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(TimeBetweenShots);
         _hasShot = false;
+    }
+
+    private void TakeDamage(int damage)
+    {
+        if (gameObject == null || _isHit) return;
+        _isHit = true;
+        if (healthPoint - damage <= 0)
+        {
+            foreach (var colliderEnemy in _colliders)
+            {
+                Destroy(colliderEnemy);
+            }
+
+            Destroy(GetComponent<Rigidbody2D>());
+            Destroy(gameObject);
+        }
+        healthPoint -= damage;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

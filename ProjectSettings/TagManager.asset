@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Weapon
   - Menu
   - Bullet
@@ -14,6 +13,13 @@ TagManager:
   - GameOverCamera
   - GoodEndingCamera
   - Food
+  - AlienEnemy
+  - TrollEnemy
+  - WizardEnemy
+  - Boss
+  - BulletAlien
+  - BulletTroll
+  - BulletWizard
   layers:
   - Default
   - TransparentFX

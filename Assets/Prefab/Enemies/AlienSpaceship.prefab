@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8621188041480243657}
   m_Layer: 20
   m_Name: AlienSpaceship
-  m_TagString: Enemy
+  m_TagString: AlienEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,3 +224,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6223153917212617901, guid: 2252a9ccb61c73c4fbf9ad50eb39729d,
     type: 3}
+  healthPoint: 80
+  damagePoint: 3

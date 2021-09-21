@@ -2446,3 +2446,179 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2891.695985 seconds.
+  path: Assets/Sprites/FoodSprites/02_dish_2.png
+  artifactKey: Guid(3e225df4e7036ab4d9bb03e5d1ca8f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/02_dish_2.png using Guid(3e225df4e7036ab4d9bb03e5d1ca8f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef667a1ba9f826e9f9f010da698f4986') in 0.345335 seconds 
+  Import took 0.354446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000337 seconds.
+  path: Assets/Sprites/FoodSprites/10_baguette_dish.png
+  artifactKey: Guid(9651c3f4c4b81e349b3316c7ad655ed2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/10_baguette_dish.png using Guid(9651c3f4c4b81e349b3316c7ad655ed2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '356a8b6ea2dc000fbe34e49719fe5f49') in 0.113919 seconds 
+  Import took 0.119171 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000403 seconds.
+  path: Assets/Sprites/FoodSprites/11_bun.png
+  artifactKey: Guid(224f2157cf467ef46b5f57a5954bb615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/11_bun.png using Guid(224f2157cf467ef46b5f57a5954bb615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fec19b093fb19643eafae06b70745b58') in 0.063453 seconds 
+  Import took 0.081914 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/Sprites/FoodSprites/04_bowl.png
+  artifactKey: Guid(6b65c61626dab2543bc244e47f9b12c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/04_bowl.png using Guid(6b65c61626dab2543bc244e47f9b12c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41ff07b47c67f607cd442489c26abf3b') in 0.060863 seconds 
+  Import took 0.095376 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/Sprites/FoodSprites/07_bread.png
+  artifactKey: Guid(3025f021763c2ba4e9fb4520c90cfec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/07_bread.png using Guid(3025f021763c2ba4e9fb4520c90cfec6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49fa2e71fb24f6e3443225b7991e9a54') in 0.075729 seconds 
+  Import took 0.100571 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000477 seconds.
+  path: Assets/Sprites/FoodSprites/04_bowl.png
+  artifactKey: Guid(6b65c61626dab2543bc244e47f9b12c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/04_bowl.png using Guid(6b65c61626dab2543bc244e47f9b12c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41ff07b47c67f607cd442489c26abf3b') in 0.022832 seconds 
+  Import took 0.030038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000093 seconds.
+  path: Assets/Sprites/FoodSprites/06_apple_pie_dish.png
+  artifactKey: Guid(ab135c8f5459cab45b3605945d334fab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/06_apple_pie_dish.png using Guid(ab135c8f5459cab45b3605945d334fab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67d93508f94cf9c42a4ffed10dcfea2f') in 0.048108 seconds 
+  Import took 0.068355 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/Sprites/FoodSprites/09_baguette.png
+  artifactKey: Guid(d10cec9c89ad438408166e82d64f8b8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/09_baguette.png using Guid(d10cec9c89ad438408166e82d64f8b8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f36231c49ee200342179c1fa6f924bb3') in 0.071072 seconds 
+  Import took 0.075953 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000334 seconds.
+  path: Assets/Sprites/FoodSprites/08_bread_dish.png
+  artifactKey: Guid(3d0cb8dc94a003949ab338fb2ab89b49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/08_bread_dish.png using Guid(3d0cb8dc94a003949ab338fb2ab89b49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fccfbebb29e6bda0ab7778fae4128522') in 0.057713 seconds 
+  Import took 0.080080 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Sprites/FoodSprites/02_dish_2.png
+  artifactKey: Guid(3e225df4e7036ab4d9bb03e5d1ca8f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/02_dish_2.png using Guid(3e225df4e7036ab4d9bb03e5d1ca8f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef667a1ba9f826e9f9f010da698f4986') in 0.016161 seconds 
+  Import took 0.022586 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.005532 seconds.
+  path: Assets/Sprites/FoodSprites/77_potatochips.png
+  artifactKey: Guid(d6d7f3ba28e940043ae48a38eb849ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/77_potatochips.png using Guid(d6d7f3ba28e940043ae48a38eb849ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14b50f6db0d28b114b6da77f65195fe5') in 0.129086 seconds 
+  Import took 0.149127 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000299 seconds.
+  path: Assets/Brackeys/2D Mega Pack/Items & Icons/Gold Miner/Harpoon.png
+  artifactKey: Guid(3f40ae8170066bb4d8280a58328eaa8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/Items & Icons/Gold Miner/Harpoon.png using Guid(3f40ae8170066bb4d8280a58328eaa8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'caf569c07c79c63af122f1c73a077af4') in 0.085510 seconds 
+  Import took 0.090001 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Brackeys/2D Mega Pack/Characters/PongPlayer.png
+  artifactKey: Guid(3f5d8b39358f65040ade5d7096bc8085) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/Characters/PongPlayer.png using Guid(3f5d8b39358f65040ade5d7096bc8085) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '231bc71a0ecd7704433a7e7a0e1ee4db') in 0.068598 seconds 
+  Import took 0.073323 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000541 seconds.
+  path: Assets/Sprites/FoodSprites/84_popcorn_bowl.png
+  artifactKey: Guid(b632b5492b7be194294c55a6485a8137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/84_popcorn_bowl.png using Guid(b632b5492b7be194294c55a6485a8137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ef09c58d23e5e3fb58a35d9763bf7ce') in 0.062050 seconds 
+  Import took 0.068062 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000333 seconds.
+  path: Assets/Brackeys/2D Mega Pack/Food & Plants/Crops/Potatoes_Done.png
+  artifactKey: Guid(3d9791791d28a9745b616ce8d8113662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/Food & Plants/Crops/Potatoes_Done.png using Guid(3d9791791d28a9745b616ce8d8113662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8dd6cd2e4033030b138597a3713c3ca') in 0.053315 seconds 
+  Import took 0.057627 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/Brackeys/2D Mega Pack/Food & Plants/Crops/Potatoes_Seed.png
+  artifactKey: Guid(a402c3ecefb2ea44abb2dc8fef3e46d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/Food & Plants/Crops/Potatoes_Seed.png using Guid(a402c3ecefb2ea44abb2dc8fef3e46d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5152ae6d8cb8b8fe9f3c685db4485c7b') in 0.042904 seconds 
+  Import took 0.053102 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/Brackeys/2D Mega Pack/UI/ItemPoolFrame.png
+  artifactKey: Guid(9e81f1d2291050f49bab39ec9fd0bbce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/UI/ItemPoolFrame.png using Guid(9e81f1d2291050f49bab39ec9fd0bbce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b59ee8775f0c53834aad2cb9deb59225') in 0.163946 seconds 
+  Import took 0.181278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000443 seconds.
+  path: Assets/Brackeys/2D Mega Pack/Food & Plants/Crops/Potatoes_Dead.png
+  artifactKey: Guid(a8343aa03d794694799a54194fab3f04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/Food & Plants/Crops/Potatoes_Dead.png using Guid(a8343aa03d794694799a54194fab3f04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0173ef544491ae214a2e630304f1e8c') in 0.058424 seconds 
+  Import took 0.132169 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000729 seconds.
+  path: Assets/Sprites/FoodSprites/78_potatochips_bowl.png
+  artifactKey: Guid(56f0928a9db240c4ba97a7000143455d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/78_potatochips_bowl.png using Guid(56f0928a9db240c4ba97a7000143455d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a003b0bdd9eb8fafbe8d3369e3e1f6c4') in 0.136306 seconds 
+  Import took 0.149640 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000742 seconds.
+  path: Assets/Sprites/FoodSprites/83_popcorn.png
+  artifactKey: Guid(912ec761c0043cd4597b10e94ac7bb6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/FoodSprites/83_popcorn.png using Guid(912ec761c0043cd4597b10e94ac7bb6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fae148ee283caa657e3f12c3ca2b6de') in 0.098527 seconds 
+  Import took 0.111398 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Brackeys/2D Mega Pack/-- Example Photos --/Pong Example.png
+  artifactKey: Guid(8de1383f09bd7e447bfaaa8c2e6c0219) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/-- Example Photos --/Pong Example.png using Guid(8de1383f09bd7e447bfaaa8c2e6c0219) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5fee831e521443f656d76b3f4534c19') in 0.350803 seconds 
+  Import took 0.370367 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000338 seconds.
+  path: Assets/Brackeys/2D Mega Pack/Items & Icons/Pixel Art/Potion.png
+  artifactKey: Guid(db005d11213e5da47b9769c2e6c56eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Brackeys/2D Mega Pack/Items & Icons/Pixel Art/Potion.png using Guid(db005d11213e5da47b9769c2e6c56eee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5e9a9541bb96a04e331128ca647714b') in 0.091700 seconds 
+  Import took 0.096131 seconds .
+

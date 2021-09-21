@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1545278145215668028}
   m_Layer: 20
   m_Name: LightWizard
-  m_TagString: Enemy
+  m_TagString: WizardEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,3 +141,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6223153917212617901, guid: 046a8de6c0ecfa644b85515ae5188535,
     type: 3}
+  healthPoint: 50
+  damagePoint: 5

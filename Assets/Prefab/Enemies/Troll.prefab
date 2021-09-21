@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5861696873006813457}
   m_Layer: 20
   m_Name: Troll
-  m_TagString: Enemy
+  m_TagString: TrollEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,3 +141,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6223153917212617901, guid: 100049c705a84d243a4ddef488764220,
     type: 3}
+  healthPoint: 100
+  damagePoint: 5

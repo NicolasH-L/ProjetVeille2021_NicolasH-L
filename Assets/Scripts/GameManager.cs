@@ -140,6 +140,11 @@ public class GameManager : MonoBehaviour
         _canvas = GameObject.FindGameObjectWithTag(PlayerUiTag).GetComponent<Canvas>();
         // _pauseMenu = GameObject.FindGameObjectWithTag(PauseMenuTag).GetComponent<Canvas>();
     }
+
+    public int GetPlayerDamage()
+    {
+        return _player.GetWeaponDamage();
+    }
     
     public void GameOver(bool isDead)
     {

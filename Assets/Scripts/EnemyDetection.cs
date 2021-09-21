@@ -10,21 +10,37 @@ public class EnemyDetection : MonoBehaviour
     private const float TimeBetweenShots = 1f;
     private Transform _target;
     private bool _hasShot;
+    private bool _isLeft;
+    private bool _isRight;
+    private SpriteRenderer test;
 
     private void Start()
     {
         _hasShot = false;
+        _isLeft = true;
+        _isRight = false;
+        test = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
+        if (_target == null) return;
         float step = Speed * Time.deltaTime;
-        if (_target != null)
+        transform.position = Vector2.MoveTowards(transform.position, _target.position, step);
+        if (_target.position.x < gameObject.transform.position.x && _isRight)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _target.position, step);
-            if (_hasShot) return;
-            StartCoroutine(DelayNextShot());
+            test.flipX = false;
+            _isLeft = true;
+            _isRight = false;
         }
+        else if (_target.position.x > gameObject.transform.position.x && _isLeft)
+        {
+            test.flipX = true;
+            _isLeft = false;
+            _isRight = true;
+        }
+        if (_hasShot) return;
+        StartCoroutine(DelayNextShot());
     }
 
     private IEnumerator DelayNextShot()

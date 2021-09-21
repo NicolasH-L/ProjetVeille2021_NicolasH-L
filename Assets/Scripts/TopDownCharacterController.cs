@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +8,18 @@ public class TopDownCharacterController : MonoBehaviour
     public static TopDownCharacterController GetPlayerInstance => _player;
     private const string KeyMoveRight = "d";
     private const string KeyMoveLeft = "a";
-    private const string Bullet = "Bullet";
+    private const string BulletAlien = "BulletAlien";
+    private const string BulletTroll = "BulletTroll";
+    private const string BulletWizard = "BulletWizard";
     private const string Food = "Food";
     private const string TeleportationPoint = "TeleportationPoint";
     private const string AttackInputKey = "space";
     private const float PlayerSpeed = 3f;
     private const float DelayTime = 0.6f;
+    private const int WeaponBaseDamage = 20;
+    private const int ContactDamage = 10;
+    private const int TrollDamage = 5;
+    private const int WizardDamage = 15;
     private const int MaxHealth = 100;
     private const int SoundEffectPlayerHit = 0;
     private const int SoundEffectMeleeHit = 1;
@@ -27,13 +32,13 @@ public class TopDownCharacterController : MonoBehaviour
     private Animator _animatorPlayer;
     private List<Animator> _liste;
     private AudioSource[] _audioSource;
-    private int _currentMaxHealth;
     private int _currentHealth;
-    private int _audioClipIndex;
+    private int _weaponDamage;
     private int _currentPlayerSfx;
     private bool _isMovingRight;
     private bool _hasAttacked;
     private bool _isHurtSoundPlayed;
+
 
     private static readonly int IsIdle = Animator.StringToHash("isIdle");
     private static readonly int AttackTrigger = Animator.StringToHash("Attack");
@@ -60,8 +65,8 @@ public class TopDownCharacterController : MonoBehaviour
         _animatorPlayer = _liste[1];
         _audioSource = GetComponents<AudioSource>();
         _currentPlayerSfx = PlayerScreamSfx;
-        _currentMaxHealth = MaxHealth;
         _currentHealth = MaxHealth;
+        _weaponDamage = WeaponBaseDamage;
         healthBar.SetMaxValue(_currentHealth);
         healthBar.SetValue(_currentHealth);
     }
@@ -120,8 +125,14 @@ public class TopDownCharacterController : MonoBehaviour
         _hasAttacked = false;
     }
 
-    private void TakeDamage(int damage)
+    public int GetWeaponDamage()
     {
+        return _weaponDamage;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        transform.GetComponent<SpriteRenderer>().color = Color.red;
         if (!_isHurtSoundPlayed)
         {
             _audioSource[SoundEffectPlayerHit].Play();
@@ -129,7 +140,7 @@ public class TopDownCharacterController : MonoBehaviour
         }
 
         _currentHealth -= damage;
-        if (_currentHealth == 0)
+        if (_currentHealth <= 0)
             OnGameEnded?.Invoke(true);
         healthBar.SetValue(_currentHealth);
     }
@@ -140,7 +151,7 @@ public class TopDownCharacterController : MonoBehaviour
         _isHurtSoundPlayed = false;
     }
 
-    private void GainHP(int value)
+    private void GainHp(int value)
     {
         _currentHealth = healthBar.GetCurrentValue() + value >= healthBar.GetCurrentMaxValue()
             ? healthBar.GetCurrentMaxValue()
@@ -154,16 +165,37 @@ public class TopDownCharacterController : MonoBehaviour
         _isMovingRight = !_isMovingRight;
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "WizardEnemy":
+                TakeDamage(WizardDamage);
+                break;
+            case "TrollEnemy":
+                TakeDamage(TrollDamage);
+                break;
+            case "Boss":
+                TakeDamage(ContactDamage);
+                break;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.gameObject.tag)
         {
-            case Bullet:
-                transform.GetComponent<SpriteRenderer>().color = Color.red;
+            case BulletAlien:
                 TakeDamage(10);
                 break;
+            case BulletTroll:
+                TakeDamage(5);
+                break;
+            case BulletWizard:
+                TakeDamage(15);
+                break;
             case Food:
-                GainHP(5);
+                GainHp(10);
                 break;
             case TeleportationPoint:
                 var manager = GameManager.GameManagerInstance;
@@ -182,13 +214,17 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("AlienEnemy") || other.gameObject.CompareTag("TrollEnemy") ||
+            other.gameObject.CompareTag("WizardEnemy")
+            || other.gameObject.CompareTag("Boss"))
             transform.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("AlienEnemy") || other.gameObject.CompareTag("TrollEnemy") ||
+            other.gameObject.CompareTag("WizardEnemy")
+            || other.gameObject.CompareTag("Boss"))
             transform.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

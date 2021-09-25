@@ -16,7 +16,7 @@ public class TopDownCharacterController : MonoBehaviour
     private const string AttackInputKey = "space";
     private const float PlayerSpeed = 3f;
     private const float DelayTime = 0.6f;
-    private const int WeaponBaseDamage = 20;
+    private const int WeaponBaseDamage = 30;
     private const int ContactDamage = 10;
     private const int TrollDamage = 5;
     private const int WizardDamage = 15;

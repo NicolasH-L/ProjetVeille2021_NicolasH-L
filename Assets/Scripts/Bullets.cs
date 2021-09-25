@@ -31,4 +31,13 @@ public class Bullets : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Props"))
+        {
+            Destroy(gameObject);
+            Destroy(this);
+        }
+    }
 }

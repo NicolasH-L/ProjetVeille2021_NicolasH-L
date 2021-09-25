@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -113,7 +114,16 @@ public class EnemyScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag(WeaponTag) && OnPlayerWeaponDamage != null)
+        {
             TakeDamage(OnPlayerWeaponDamage());
+            _sprite.color = Color.red;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag(WeaponTag))
+            _sprite.color = Color.white;
     }
 
     private void OnCollisionStay2D(Collision2D other)

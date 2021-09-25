@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6223153917212617899}
   - component: {fileID: 5088397082223489052}
   - component: {fileID: 305876003697790424}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: BulletsWizard
   m_TagString: BulletWizard
   m_Icon: {fileID: 0}

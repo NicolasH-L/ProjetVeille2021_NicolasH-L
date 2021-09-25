@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
         _playerCamera.transform.position = _playerSpawnLocation.transform.position;
         _player.gameObject.layer = 20;
         _player.GetComponent<SpriteRenderer>().sortingLayerName = "Layer 1";
-        _player.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        _player.GetComponent<SpriteRenderer>().sortingOrder = 3;
         StartCoroutine(DelayEndReachedReset());
         if (!_isMusicPaused)
             PlayMusic(listLevelBgm);

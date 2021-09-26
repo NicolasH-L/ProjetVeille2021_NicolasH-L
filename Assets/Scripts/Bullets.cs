@@ -20,21 +20,14 @@ public class Bullets : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, _target, speed * Time.deltaTime);
-        // StartCoroutine(DestroyBulletsDelay(1.5f));
         if (!transform.position.Equals(_target)) return;
         Destroy(_bulletCollider);
         Destroy(gameObject);
     }
 
-    private IEnumerator DestroyBulletsDelay(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Props"))
+        if (other.gameObject.CompareTag("Props") || other.gameObject.CompareTag("Weapon"))
         {
             Destroy(gameObject);
             Destroy(this);

@@ -195,7 +195,7 @@ public class TopDownCharacterController : MonoBehaviour
                 TakeDamage(15);
                 break;
             case Food:
-                GainHp(10);
+                GainHp(15);
                 break;
             case TeleportationPoint:
                 var manager = GameManager.GameManagerInstance;

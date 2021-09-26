@@ -13,10 +13,14 @@ public class GameManager : MonoBehaviour
     private const int GameEndSceneIndex = 4;
     private const int GameOverSceneIndex = 5;
     private const int IndexAudioSourceLevelBgm = 0;
+    private const int SortingOrderLayer = 3;
+    private const int LayerIndex = 20;
     private const string MainCamera = "MainCamera";
-    private const string PlayerSpawnLocationTag = "PlayerSpawn";
     private const string PauseMenuTag = "PauseMenu";
     private const string PlayerUiTag = "PlayerUI";
+    private const string PlayerSpawnLocationTag = "PlayerSpawn";
+    private const string TeleportationPointTag = "TeleportationPoint";
+    private const string LayerName = "Layer 1";
     [SerializeField] private List<AudioClip> listWelcomeBgm;
     [SerializeField] private List<AudioClip> listLevelBgm;
     private List<AudioSource> _listAudioSources;
@@ -100,7 +104,7 @@ public class GameManager : MonoBehaviour
         _levelAudioSource.loop = true;
         _levelAudioSource.Play();
     }
-    
+
     public void NextLevel()
     {
         OnLevelEndReached -= NextLevel;
@@ -116,9 +120,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         _player.transform.position = _playerSpawnLocation.transform.position;
         _playerCamera.transform.position = _playerSpawnLocation.transform.position;
-        _player.gameObject.layer = 20;
-        _player.GetComponent<SpriteRenderer>().sortingLayerName = "Layer 1";
-        _player.GetComponent<SpriteRenderer>().sortingOrder = 3;
+        _player.gameObject.layer = LayerIndex;
+        _player.GetComponent<SpriteRenderer>().sortingLayerName = LayerName;
+        _player.GetComponent<SpriteRenderer>().sortingOrder = SortingOrderLayer;
         StartCoroutine(DelayEndReachedReset());
         if (!_isMusicPaused)
             PlayMusic(listLevelBgm);
@@ -145,20 +149,22 @@ public class GameManager : MonoBehaviour
     {
         return _player.GetWeaponDamage();
     }
-    
+
     public void GameOver(bool isDead)
     {
         _listAudioSources[IndexAudioSourceLevelBgm].Stop();
         var index = GameEndSceneIndex;
         if (isDead)
             index = GameOverSceneIndex;
-        
+
         Destroy(GameObject.FindGameObjectWithTag(MainCamera));
         Destroy(GameObject.FindGameObjectWithTag(PauseMenuTag));
         Destroy(GameObject.FindGameObjectWithTag(PlayerUiTag));
+        Destroy(GameObject.FindGameObjectWithTag(PlayerSpawnLocationTag));
+        Destroy(GameObject.FindGameObjectWithTag(TeleportationPointTag));
         StartCoroutine(LoadSc(index));
     }
-    
+
     private IEnumerator LoadSc(int index)
     {
         yield return new WaitForSeconds(0.6f);

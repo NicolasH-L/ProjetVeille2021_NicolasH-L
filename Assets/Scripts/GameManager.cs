@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(_playerSpawnLocation);
         DontDestroyOnLoad(_playerCamera);
         DontDestroyOnLoad(_canvas);
-        // DontDestroyOnLoad(_pauseMenu);
+        DontDestroyOnLoad(_pauseMenu);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         _player.transform.position = _playerSpawnLocation.transform.position;
         _playerCamera.transform.position = _playerSpawnLocation.transform.position;
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         _playerCamera = Camera.main;
         _playerSpawnLocation = GameObject.FindGameObjectWithTag(PlayerSpawnLocationTag);
         _canvas = GameObject.FindGameObjectWithTag(PlayerUiTag).GetComponent<Canvas>();
-        // _pauseMenu = GameObject.FindGameObjectWithTag(PauseMenuTag).GetComponent<Canvas>();
+        _pauseMenu = GameObject.FindGameObjectWithTag(PauseMenuTag).GetComponent<Canvas>();
     }
 
     public int GetPlayerDamage()
@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
             index = GameOverSceneIndex;
         
         Destroy(GameObject.FindGameObjectWithTag(MainCamera));
-        // Destroy(GameObject.FindGameObjectWithTag(PauseMenuTag));
+        Destroy(GameObject.FindGameObjectWithTag(PauseMenuTag));
         Destroy(GameObject.FindGameObjectWithTag(PlayerUiTag));
         StartCoroutine(LoadSc(index));
     }

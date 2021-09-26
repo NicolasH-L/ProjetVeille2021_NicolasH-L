@@ -128,6 +128,9 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag(WeaponTag) && OnPlayerWeaponDamage != null)
+            TakeDamage(OnPlayerWeaponDamage());
+        
         if (!other.gameObject.CompareTag(PlayerTag) || _isCollidedWithPlayer) return;
         _isCollidedWithPlayer = true;
         OnPlayerCollide?.Invoke(damagePoint);

@@ -16,13 +16,13 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private int healthPoint;
     [SerializeField] private int damagePoint;
+    [SerializeField] private SpriteRenderer sprite;
     private const float Speed = 1F;
     private const float TimeBetweenShots = 1f;
     private const float CollisionAttackDelay = 1f;
     private const string WeaponTag = "Weapon";
     private const string PlayerTag = "Player";
     private Transform _target;
-    private SpriteRenderer _sprite;
     private List<Collider2D> _colliders;
     private bool _hasShot;
     private bool _isLeft;
@@ -43,7 +43,6 @@ public class EnemyScript : MonoBehaviour
         _hasShot = false;
         _isLeft = true;
         _isRight = false;
-        _sprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -53,13 +52,13 @@ public class EnemyScript : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, _target.position, step);
         if (_target.position.x < gameObject.transform.position.x && _isRight)
         {
-            _sprite.flipX = false;
+            sprite.flipX = false;
             _isLeft = true;
             _isRight = false;
         }
         else if (_target.position.x > gameObject.transform.position.x && _isLeft)
         {
-            _sprite.flipX = true;
+            sprite.flipX = true;
             _isLeft = false;
             _isRight = true;
         }
@@ -116,21 +115,21 @@ public class EnemyScript : MonoBehaviour
         if (other.gameObject.CompareTag(WeaponTag) && OnPlayerWeaponDamage != null)
         {
             TakeDamage(OnPlayerWeaponDamage());
-            _sprite.color = Color.red;
+            sprite.color = Color.red;
         }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag(WeaponTag))
-            _sprite.color = Color.white;
+            sprite.color = Color.white;
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag(WeaponTag) && OnPlayerWeaponDamage != null)
             TakeDamage(OnPlayerWeaponDamage());
-        
+
         if (!other.gameObject.CompareTag(PlayerTag) || _isCollidedWithPlayer) return;
         _isCollidedWithPlayer = true;
         OnPlayerCollide?.Invoke(damagePoint);

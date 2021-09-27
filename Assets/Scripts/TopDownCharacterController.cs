@@ -14,13 +14,22 @@ public class TopDownCharacterController : MonoBehaviour
     private const string Food = "Food";
     private const string TeleportationPoint = "TeleportationPoint";
     private const string AttackInputKey = "space";
+    private const string AlienEnemyTag = "AlienEnemy";
+    private const string TrollEnemyTag = "TrollEnemy";
+    private const string WizardEnemyTag = "WizardEnemy";
+    private const string BossEnemyTag = "Boss";
     private const float PlayerSpeed = 3f;
     private const float DelayTime = 0.6f;
     private const int WeaponBaseDamage = 30;
     private const int ContactDamage = 10;
     private const int TrollDamage = 5;
-    private const int WizardDamage = 15;
+    private const int AlienDamage = 10;
+    private const int WizardDamage = 10;
+    private const int AlienBulletDamage = 10;
+    private const int TrollBulletDamage = 5;
+    private const int WizardBulletDamage = 15;
     private const int MaxHealth = 100;
+    private const int FoodHealth = 15;
     private const int SoundEffectPlayerHit = 0;
     private const int SoundEffectMeleeHit = 1;
     private const int PlayerScreamSfx = 2;
@@ -132,9 +141,9 @@ public class TopDownCharacterController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        transform.GetComponent<SpriteRenderer>().color = Color.red;
         if (!_isHurtSoundPlayed)
         {
+            transform.GetComponent<SpriteRenderer>().color = Color.red;
             _audioSource[SoundEffectPlayerHit].Play();
             StartCoroutine(DelayHurtSound());
         }
@@ -169,13 +178,16 @@ public class TopDownCharacterController : MonoBehaviour
     {
         switch (other.gameObject.tag)
         {
-            case "WizardEnemy":
+            case AlienEnemyTag:
+                TakeDamage(AlienDamage);
+                break;
+            case WizardEnemyTag:
                 TakeDamage(WizardDamage);
                 break;
-            case "TrollEnemy":
+            case TrollEnemyTag:
                 TakeDamage(TrollDamage);
                 break;
-            case "Boss":
+            case BossEnemyTag:
                 TakeDamage(ContactDamage);
                 break;
         }
@@ -186,16 +198,16 @@ public class TopDownCharacterController : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case BulletAlien:
-                TakeDamage(10);
+                TakeDamage(AlienBulletDamage);
                 break;
             case BulletTroll:
-                TakeDamage(5);
+                TakeDamage(TrollBulletDamage);
                 break;
             case BulletWizard:
-                TakeDamage(15);
+                TakeDamage(WizardBulletDamage);
                 break;
             case Food:
-                GainHp(15);
+                GainHp(FoodHealth);
                 break;
             case TeleportationPoint:
                 var manager = GameManager.GameManagerInstance;
@@ -208,8 +220,14 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
-            transform.GetComponent<SpriteRenderer>().color = Color.white;
+        switch (other.gameObject.tag)
+        {
+            case BulletAlien:
+            case BulletTroll:
+            case BulletWizard:
+                transform.GetComponent<SpriteRenderer>().color = Color.white;
+                break;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)

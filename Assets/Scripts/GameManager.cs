@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     private const int IndexAudioSourceLevelBgm = 0;
     private const int SortingOrderLayer = 3;
     private const int LayerIndex = 20;
-    private const string MainCamera = "MainCamera";
     private const string PauseMenuTag = "PauseMenu";
     private const string PlayerUiTag = "PlayerUI";
     private const string PlayerSpawnLocationTag = "PlayerSpawn";
@@ -157,7 +156,6 @@ public class GameManager : MonoBehaviour
         if (isDead)
             index = GameOverSceneIndex;
 
-        Destroy(GameObject.FindGameObjectWithTag(MainCamera));
         Destroy(GameObject.FindGameObjectWithTag(PauseMenuTag));
         Destroy(GameObject.FindGameObjectWithTag(PlayerUiTag));
         Destroy(GameObject.FindGameObjectWithTag(PlayerSpawnLocationTag));

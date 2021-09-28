@@ -19,6 +19,7 @@ public class SpecialEnemy : MonoBehaviour
     private int _currentWaypoint;
     private int _healthPoint;
     private bool _isHit;
+    private bool _reachedEndPath;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class SpecialEnemy : MonoBehaviour
         _seeker = GetComponent<Seeker>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _currentWaypoint = 0;
+        _reachedEndPath = false;
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
@@ -49,6 +51,13 @@ public class SpecialEnemy : MonoBehaviour
     {
         if (_path == null) return;
 
+        if (_currentWaypoint >= _path.vectorPath.Count)
+        {
+            _reachedEndPath = true;
+            return;
+        }
+
+        _reachedEndPath = false;
         Vector2 direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
         Vector2 force = direction * Speed * Time.deltaTime;
         _rigidbody2D.AddForce(force);
@@ -57,9 +66,9 @@ public class SpecialEnemy : MonoBehaviour
             _currentWaypoint++;
 
         if (_rigidbody2D.velocity.x >= 0.01f)
-            spriteBoss.localScale = new Vector3(-SpriteScale, SpriteScale, SpriteScale);
-        else if (_rigidbody2D.velocity.x <= -0.01f)
             spriteBoss.localScale = new Vector3(SpriteScale, SpriteScale, SpriteScale);
+        else if (_rigidbody2D.velocity.x <= -0.01f)
+            spriteBoss.localScale = new Vector3(-SpriteScale, SpriteScale, SpriteScale);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

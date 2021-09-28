@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8355176620901490357}
   - component: {fileID: 8355176620901490356}
   - component: {fileID: 2015042934836770920}
+  - component: {fileID: 6902307384985554282}
   m_Layer: 21
   m_Name: SpikyBall
-  m_TagString: Untagged
+  m_TagString: SpecialBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,9 +94,22 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0108796675, y: 0}
   serializedVersion: 2
   m_Radius: 0.6716517
+--- !u!114 &6902307384985554282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355176620901490347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ab0c098fb0a9a4dac0531970f113e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3

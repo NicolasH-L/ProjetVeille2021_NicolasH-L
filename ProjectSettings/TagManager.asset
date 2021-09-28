@@ -24,6 +24,7 @@ TagManager:
   - Props
   - PauseMenu
   - SpecialEnemy
+  - SpecialBullet
   layers:
   - Default
   - TransparentFX

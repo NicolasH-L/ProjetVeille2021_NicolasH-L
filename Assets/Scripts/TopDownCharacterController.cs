@@ -11,12 +11,14 @@ public class TopDownCharacterController : MonoBehaviour
     private const string BulletAlien = "BulletAlien";
     private const string BulletTroll = "BulletTroll";
     private const string BulletWizard = "BulletWizard";
+    private const string SpecialBullet = "SpecialBullet";
     private const string Food = "Food";
     private const string TeleportationPoint = "TeleportationPoint";
     private const string AttackInputKey = "space";
     private const string AlienEnemyTag = "AlienEnemy";
     private const string TrollEnemyTag = "TrollEnemy";
     private const string WizardEnemyTag = "WizardEnemy";
+    private const string SpecialEnemyTag = "SpecialEnemy";
     private const string BossEnemyTag = "Boss";
     private const float PlayerSpeed = 3f;
     private const float DelayTime = 0.6f;
@@ -25,9 +27,11 @@ public class TopDownCharacterController : MonoBehaviour
     private const int TrollDamage = 5;
     private const int AlienDamage = 10;
     private const int WizardDamage = 10;
+    private const int SpecialEnemyDamage = 20;
     private const int AlienBulletDamage = 10;
     private const int TrollBulletDamage = 5;
     private const int WizardBulletDamage = 15;
+    private const int SpecialBulletDamage = 20;
     private const int MaxHealth = 100;
     private const int FoodHealth = 15;
     private const int SoundEffectPlayerHit = 0;
@@ -187,6 +191,9 @@ public class TopDownCharacterController : MonoBehaviour
             case TrollEnemyTag:
                 TakeDamage(TrollDamage);
                 break;
+            case SpecialEnemyTag:
+                TakeDamage(SpecialEnemyDamage);
+                break;
             case BossEnemyTag:
                 TakeDamage(ContactDamage);
                 break;
@@ -205,6 +212,9 @@ public class TopDownCharacterController : MonoBehaviour
                 break;
             case BulletWizard:
                 TakeDamage(WizardBulletDamage);
+                break;
+            case SpecialBullet:
+                TakeDamage(SpecialBulletDamage);
                 break;
             case Food:
                 GainHp(FoodHealth);

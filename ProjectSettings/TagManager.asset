@@ -23,6 +23,7 @@ TagManager:
   - Enemy
   - Props
   - PauseMenu
+  - SpecialEnemy
   layers:
   - Default
   - TransparentFX

@@ -2,48 +2,51 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+namespace UI
 {
-    private const int FinalLevelScene = 3;
-    private Slider _slider;
-    private int _currentValue;
-    private int _currentMaxValue;
-    public Gradient gradient;
-    public Image fill;
-
-    private void Awake()
+    public class HealthBar : MonoBehaviour
     {
-        _slider = GetComponent<Slider>();
-    }
+        private const int FinalLevelScene = 3;
+        private Slider _slider;
+        private int _currentValue;
+        private int _currentMaxValue;
+        public Gradient gradient;
+        public Image fill;
 
-    public void SetMaxValue(int maxValue)
-    {
-        _slider.maxValue = maxValue;
-        _currentMaxValue = maxValue;
-        fill.color = gradient.Evaluate(1f);
-    }
+        private void Awake()
+        {
+            _slider = GetComponent<Slider>();
+        }
 
-    public void SetValue(int value)
-    {
-        _slider.value = value;
-        _currentValue = value;
-        fill.color = gradient.Evaluate(_slider.normalizedValue);
-    }
+        public void SetMaxValue(int maxValue)
+        {
+            _slider.maxValue = maxValue;
+            _currentMaxValue = maxValue;
+            fill.color = gradient.Evaluate(1f);
+        }
 
-    public int GetCurrentMaxValue()
-    {
-        return _currentMaxValue;
-    }
+        public void SetValue(int value)
+        {
+            _slider.value = value;
+            _currentValue = value;
+            fill.color = gradient.Evaluate(_slider.normalizedValue);
+        }
 
-    public int GetCurrentValue()
-    {
-        return _currentValue;
-    }
+        public int GetCurrentMaxValue()
+        {
+            return _currentMaxValue;
+        }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        if (SceneManager.GetActiveScene().buildIndex <= FinalLevelScene) return;
-        Destroy(gameObject);
-        Destroy(this);
+        public int GetCurrentValue()
+        {
+            return _currentValue;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+        {
+            if (SceneManager.GetActiveScene().buildIndex <= FinalLevelScene) return;
+            Destroy(gameObject);
+            Destroy(this);
+        }
     }
 }

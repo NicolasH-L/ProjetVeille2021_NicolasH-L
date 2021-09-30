@@ -1,22 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivateSpecialEnemyDetection : MonoBehaviour
+namespace Enemy
 {
-    private const string PlayerTag = "Player";
-    [SerializeField] private SpecialEnemy specialEnemy;
-
-    private void Start()
+    public class ActivateSpecialEnemyDetection : MonoBehaviour
     {
-        if (GameManager.GameManagerInstance == null) return;
-        specialEnemy.enabled = false;
-    }
+        private const string PlayerTag = "Player";
+        [SerializeField] private SpecialEnemy specialEnemy;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag(PlayerTag)) return;
-        specialEnemy.enabled = true;
+        private void Start()
+        {
+            if (GameManager.GameManagerInstance == null) return;
+            specialEnemy.enabled = false;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.gameObject.CompareTag(PlayerTag)) return;
+            specialEnemy.enabled = true;
+        }
     }
 }

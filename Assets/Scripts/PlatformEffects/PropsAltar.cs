@@ -2,27 +2,30 @@
 using UnityEngine;
 
 //when something get into the alta, make the runes glow
-public class PropsAltar : MonoBehaviour
+namespace PlatformEffects
 {
-    public List<SpriteRenderer> runes;
-    public float lerpSpeed;
-    private Color _curColor;
-    private Color _targetColor;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public class PropsAltar : MonoBehaviour
     {
-        _targetColor = new Color(1, 1, 1, 1);
-    }
+        public List<SpriteRenderer> runes;
+        public float lerpSpeed;
+        private Color _curColor;
+        private Color _targetColor;
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        _targetColor = new Color(1, 1, 1, 0);
-    }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            _targetColor = new Color(1, 1, 1, 1);
+        }
 
-    private void Update()
-    {
-        _curColor = Color.Lerp(_curColor, _targetColor, lerpSpeed * Time.deltaTime);
-        foreach (var r in runes)
-            r.color = _curColor;
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            _targetColor = new Color(1, 1, 1, 0);
+        }
+
+        private void Update()
+        {
+            _curColor = Color.Lerp(_curColor, _targetColor, lerpSpeed * Time.deltaTime);
+            foreach (var r in runes)
+                r.color = _curColor;
+        }
     }
 }

@@ -1,73 +1,76 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+namespace UI
 {
-    private const string DestroyGameManager = "Game Manager";
-    private const string DestroyPlayer = "PlayerTeri";
-    private const string DestroyPlayerUI = "PlayerUI";
-    private const string WelcomeScreenMenu = "WelcomeScreenMenu";
-    private const int FinalLevelScene = 3;
-    [SerializeField] private GameObject pauseMenuUI;
-    private bool _isGamePaused;
-
-    private void Start()
+    public class PauseMenu : MonoBehaviour
     {
-        Time.timeScale = 1f;
-        _isGamePaused = false;
-        pauseMenuUI.SetActive(false);
-    }
+        private const string DestroyGameManager = "Game Manager";
+        private const string DestroyPlayer = "PlayerTeri";
+        private const string DestroyPlayerUI = "PlayerUI";
+        private const string WelcomeScreenMenu = "WelcomeScreenMenu";
+        private const int FinalLevelScene = 3;
+        [SerializeField] private GameObject pauseMenuUI;
+        private bool _isGamePaused;
 
-    private void Update()
-    {
-        if (!Input.GetKeyDown(KeyCode.Escape)) return;
-        if (_isGamePaused)
-            Resume();
-        else
-            Pause();
-    }
+        private void Start()
+        {
+            Time.timeScale = 1f;
+            _isGamePaused = false;
+            pauseMenuUI.SetActive(false);
+        }
 
-    public void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        _isGamePaused = false;
-    }
+        private void Update()
+        {
+            if (!Input.GetKeyDown(KeyCode.Escape)) return;
+            if (_isGamePaused)
+                Resume();
+            else
+                Pause();
+        }
 
-    public void Pause()
-    {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        _isGamePaused = true;
-    }
+        public void Resume()
+        {
+            pauseMenuUI.SetActive(false);
+            Time.timeScale = 1f;
+            _isGamePaused = false;
+        }
 
-    public void LoadMenu()
-    {
-        Destroy(GameObject.Find(DestroyGameManager));
-        Destroy(pauseMenuUI);
-        Destroy(GameObject.Find(DestroyPlayer));
-        Destroy(GameObject.Find(DestroyPlayerUI));
-        SceneManager.LoadScene(WelcomeScreenMenu);
-    }
+        public void Pause()
+        {
+            pauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            _isGamePaused = true;
+        }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
+        public void LoadMenu()
+        {
+            Destroy(GameObject.Find(DestroyGameManager));
+            Destroy(pauseMenuUI);
+            Destroy(GameObject.Find(DestroyPlayer));
+            Destroy(GameObject.Find(DestroyPlayerUI));
+            SceneManager.LoadScene(WelcomeScreenMenu);
+        }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
 
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        if (SceneManager.GetActiveScene().buildIndex <= FinalLevelScene) return;
-        Destroy(gameObject);
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+        {
+            if (SceneManager.GetActiveScene().buildIndex <= FinalLevelScene) return;
+            Destroy(gameObject);
+        }
     }
 }

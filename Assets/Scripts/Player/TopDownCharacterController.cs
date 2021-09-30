@@ -23,7 +23,6 @@ namespace Player
         private const string WizardEnemyTag = "WizardEnemy";
         private const string SpecialEnemyTag = "SpecialEnemy";
         private const string BossEnemyTag = "Boss";
-        private const float PlayerSpeed = 3f;
         private const float DelayTime = 0.6f;
         private const int WeaponBaseDamage = 30;
         private const int ContactDamage = 10;
@@ -44,6 +43,7 @@ namespace Player
 
         [SerializeField] private GameObject judahWeapon;
         [SerializeField] private HealthBar healthBar;
+        [SerializeField] private float playerSpeed = 3f;
 
         private Animator _animatorPlayer;
         private List<Animator> _liste;
@@ -100,7 +100,7 @@ namespace Player
             else if (Input.GetKey(KeyCode.S))
                 dir.y = -1;
             dir.Normalize();
-            GetComponent<Rigidbody2D>().velocity = PlayerSpeed * dir;
+            GetComponent<Rigidbody2D>().velocity = playerSpeed * dir;
 
             if (Input.GetKey(AttackInputKey) && !_hasAttacked)
                 Attack();

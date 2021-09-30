@@ -114,13 +114,11 @@ public class GameManager : MonoBehaviour
         _isEndReached = true;
         ++_currentLevel;
         DontDestroyOnLoad(_player);
-        DontDestroyOnLoad(_playerSpawnLocation);
         DontDestroyOnLoad(_playerCamera);
         DontDestroyOnLoad(_canvas);
         DontDestroyOnLoad(_pauseMenu);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        _player.transform.position = _playerSpawnLocation.transform.position;
-        _playerCamera.transform.position = _playerSpawnLocation.transform.position;
+        StartCoroutine(DelaySpawnPositionNextLevel());
         _player.gameObject.layer = LayerIndex;
         _player.GetComponent<SpriteRenderer>().sortingLayerName = LayerName;
         _player.GetComponent<SpriteRenderer>().sortingOrder = SortingOrderLayer;
@@ -133,6 +131,13 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         _isEndReached = false;
+    }
+
+    private IEnumerator DelaySpawnPositionNextLevel()
+    {
+        yield return new WaitForSeconds(0.05f);
+        _player.transform.position = _playerSpawnLocation.transform.position;
+        _playerCamera.transform.position = _playerSpawnLocation.transform.position;
     }
 
     private void GetPlayer(Scene scene, LoadSceneMode mode)

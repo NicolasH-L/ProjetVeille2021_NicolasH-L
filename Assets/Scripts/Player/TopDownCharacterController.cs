@@ -32,7 +32,7 @@ public class TopDownCharacterController : MonoBehaviour
     private const int TrollBulletDamage = 5;
     private const int WizardBulletDamage = 15;
     private const int SpecialBulletDamage = 20;
-    private const int MaxHealth = 100;
+    private const int MaxHealth = 9999;
     private const int FoodHealth = 15;
     private const int SoundEffectPlayerHit = 0;
     private const int SoundEffectMeleeHit = 1;

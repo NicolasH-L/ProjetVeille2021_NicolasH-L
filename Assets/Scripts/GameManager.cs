@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private const int LayerIndex = 20;
     private const string PauseMenuTag = "PauseMenu";
     private const string PlayerUiTag = "PlayerUI";
+    private const string PlayerTag = "Player";
     private const string PlayerSpawnLocationTag = "PlayerSpawn";
     private const string TeleportationPointTag = "TeleportationPoint";
     private const string LayerName = "Layer 1";
@@ -156,8 +157,10 @@ public class GameManager : MonoBehaviour
         if (isDead)
             index = GameOverSceneIndex;
 
+        DontDestroyOnLoad(_playerCamera);
         Destroy(GameObject.FindGameObjectWithTag(PauseMenuTag));
         Destroy(GameObject.FindGameObjectWithTag(PlayerUiTag));
+        Destroy(GameObject.FindGameObjectWithTag(PlayerTag));
         Destroy(GameObject.FindGameObjectWithTag(PlayerSpawnLocationTag));
         Destroy(GameObject.FindGameObjectWithTag(TeleportationPointTag));
         StartCoroutine(LoadSc(index));

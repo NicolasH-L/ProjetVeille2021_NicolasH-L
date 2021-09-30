@@ -1285,12 +1285,12 @@ GameObject:
   - component: {fileID: 2120339090}
   - component: {fileID: 2120339089}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: GameOver Camera
   m_TagString: GameOverCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &2120339089
 AudioListener:
   m_ObjectHideFlags: 0

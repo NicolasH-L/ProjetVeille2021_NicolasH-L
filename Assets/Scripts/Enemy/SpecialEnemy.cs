@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpecialEnemy : MonoBehaviour
 {
-    private const float Speed = 100f;
+    private const float Speed = 20f;
     private const float NextWaypoint = 3F;
     private const float SpriteScale = 0.2751575f;
     private const float ResetDelay = 0.5f;
@@ -63,15 +63,15 @@ public class SpecialEnemy : MonoBehaviour
 
         _reachedEndPath = false;
         Vector2 direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
-        Vector2 force = direction * Speed * Time.deltaTime;
-        _rigidbody2D.AddForce(force);
+        Vector2 tempVelocity = direction * Speed * Time.deltaTime;
+        _rigidbody2D.velocity = new Vector2(tempVelocity.x, tempVelocity.y);
         float distance = Vector2.Distance(_rigidbody2D.position, _path.vectorPath[_currentWaypoint]);
         if (distance < NextWaypoint)
             _currentWaypoint++;
 
-        if (_rigidbody2D.velocity.x >= 0.01f)
+        if (_rigidbody2D.velocity.x >= 0.1f)
             spriteBoss.localScale = new Vector3(SpriteScale, SpriteScale, SpriteScale);
-        else if (_rigidbody2D.velocity.x <= -0.01f)
+        else if (_rigidbody2D.velocity.x <= -0.1f)
             spriteBoss.localScale = new Vector3(-SpriteScale, SpriteScale, SpriteScale);
     }
 

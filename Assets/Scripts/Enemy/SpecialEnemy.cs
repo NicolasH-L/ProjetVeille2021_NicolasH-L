@@ -11,9 +11,10 @@ namespace Enemy
         private const float NextWaypoint = 3F;
         private const float SpriteScale = 0.2751575f;
         private const float ResetDelay = 0.5f;
-        private const int StartingHealthPoint = 100;
+        private const int StartingHealthPoint = 200;
         private const float TimeBetweenShots = 1f;
         private const string WeaponTag = "Weapon";
+        private const string PlayerTag = "Player";
         [SerializeField] private Transform target;
         [SerializeField] private Transform spriteBoss;
         [SerializeField] private GameObject projectile;
@@ -93,21 +94,20 @@ namespace Enemy
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag(PlayerTag))
                 _target = other.transform;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (!other.gameObject.CompareTag(WeaponTag) || GameManager.GameManagerInstance == null)
-                return;
+            if (!other.gameObject.CompareTag(WeaponTag) || GameManager.GameManagerInstance == null || _isHit) return;
             TakeDamage(GameManager.GameManagerInstance.GetPlayerDamage());
         }
 
         private void TakeDamage(int damage)
         {
             _isHit = true;
-            transform.GetComponent<SpriteRenderer>().color = Color.red;
+            transform.GetComponentInChildren<SpriteRenderer>().color = Color.red;
             if (_healthPoint - damage <= 0)
             {
                 Destroy(GetComponent<Rigidbody2D>());
@@ -130,7 +130,7 @@ namespace Enemy
         private void OnCollisionExit2D(Collision2D other)
         {
             if (other.gameObject.CompareTag(WeaponTag))
-                transform.GetComponent<SpriteRenderer>().color = Color.white;
+                transform.GetComponentInChildren<SpriteRenderer>().color = Color.white;
         }
     }
 }

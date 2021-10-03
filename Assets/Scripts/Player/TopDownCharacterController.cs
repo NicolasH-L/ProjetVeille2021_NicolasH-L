@@ -30,12 +30,12 @@ namespace Player
         private const int AlienDamage = 10;
         private const int WizardDamage = 10;
         private const int SpecialEnemyDamage = 20;
-        private const int AlienBulletDamage = 10;
+        private const int AlienBulletDamage = 8;
         private const int TrollBulletDamage = 5;
-        private const int WizardBulletDamage = 15;
+        private const int WizardBulletDamage = 10;
         private const int SpecialBulletDamage = 20;
-        private const int MaxHealth = 9999;
-        private const int FoodHealth = 15;
+        private const int MaxHealth = 100;
+        private const int FoodHealth = 20;
         private const int SoundEffectPlayerHit = 0;
         private const int SoundEffectMeleeHit = 1;
         private const int PlayerScreamSfx = 2;
@@ -238,6 +238,7 @@ namespace Player
                 case BulletAlien:
                 case BulletTroll:
                 case BulletWizard:
+                case SpecialBullet:
                     transform.GetComponent<SpriteRenderer>().color = Color.white;
                     break;
             }
@@ -245,18 +246,30 @@ namespace Player
 
         private void OnCollisionStay2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("AlienEnemy") || other.gameObject.CompareTag("TrollEnemy") ||
-                other.gameObject.CompareTag("WizardEnemy")
-                || other.gameObject.CompareTag("Boss"))
-                transform.GetComponent<SpriteRenderer>().color = Color.red;
+            switch (other.gameObject.tag)
+            {
+                case AlienEnemyTag:
+                case WizardEnemyTag:
+                case TrollEnemyTag:
+                case SpecialEnemyTag:
+                case BossEnemyTag:
+                    transform.GetComponent<SpriteRenderer>().color = Color.red;
+                    break;
+            }
         }
 
         private void OnCollisionExit2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("AlienEnemy") || other.gameObject.CompareTag("TrollEnemy") ||
-                other.gameObject.CompareTag("WizardEnemy")
-                || other.gameObject.CompareTag("Boss"))
-                transform.GetComponent<SpriteRenderer>().color = Color.white;
+            switch (other.gameObject.tag)
+            {
+                case AlienEnemyTag:
+                case WizardEnemyTag:
+                case TrollEnemyTag:
+                case SpecialEnemyTag:
+                case BossEnemyTag:
+                    transform.GetComponent<SpriteRenderer>().color = Color.white;
+                    break;
+            }
         }
     }
 }
